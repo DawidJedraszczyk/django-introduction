@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista Kursów</title>
+</head>
+<body>
+    <a href="{% url 'create_course' %}">Dodaj nowy kurs</a>
+    <h1>Lista Kursów</h1>
+    <ul>
+        {% for course in courses %}
+            <li>
+                <h2>{{ course.title }}</h2>
+                <p>{{ course.content }}</p>
+                <p><strong>Autor:</strong> {{ course.author }}</p>
+                <p><em>Utworzono: {{ course.created_at }}</em></p>
+                <p><em>Aktualizowano: {{ course.updated_at }}</em></p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
