@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Usuń Kurs</title>
+</head>
+<body>
+    <h1>Usuń Kurs</h1>
+    <p>Czy na pewno chcesz usunąć kurs "{{ course.title }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Usuń</button>
+    </form>
+    <a href="{% url 'course_list' %}">Anuluj</a>
+</body>
+</html>

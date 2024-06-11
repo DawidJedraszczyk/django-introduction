@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Course
 from .forms import CourseForm
 
@@ -15,3 +15,10 @@ def create_course(request):
     else:
         form = CourseForm()
     return render(request, 'create_course.html', {'form': form})
+
+def delete_course(request, course_id):
+    course = get_object_or_404(Course, id=course_id)
+    if request.method == 'POST':
+        course.delete()
+        return redirect('course_list')
+    return render(request, 'delete_course.html', {'course': course})

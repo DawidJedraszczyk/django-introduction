@@ -14,8 +14,11 @@
                 <p><strong>Autor:</strong> {{ course.author }}</p>
                 <p><em>Utworzono: {{ course.created_at }}</em></p>
                 <p><em>Aktualizowano: {{ course.updated_at }}</em></p>
+                <p><a href="{% url "delete_course" course.id %}">Usuń kurs</a></p>
             </li>
         {% endfor %}
     </ul>
+
+    <a href="{% url 'teacher_list' %}">Zobacz również listę nauczycieli</a>
 </body>
 </html>

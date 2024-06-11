@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista Nauczycieli</title>
+</head>
+<body>
+    <a href="{% url 'create_teacher' %}">Dodaj nowego nauczyciela</a>
+    <h1>Lista Nauczycieli</h1>
+    <ul>
+        {% for teacher in teachers %}
+            <li>
+                <h2>{{ teacher.first_name }} {{ teacher.last_name }}</h2>
+                <p>Wiek: {{ teacher.age }}</p>
+                <p>Kurs: {{ teacher.course.title }}</p>
+                <a href="{% url 'delete_teacher' teacher.id %}">Usuń</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'course_list' %}">Zobacz również listę kursów</a>
+</body>
+</html>
